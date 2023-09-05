@@ -5,8 +5,15 @@ import EditIcon from '@/assets/icons/EditIcon.tsx';
 import TrashIcon from '@/assets/icons/TrashIcon.tsx';
 import AddIcon from '@/assets/icons/AddIcon.tsx';
 import CloseIcon from '@/assets/icons/CloseIcon.tsx';
+import { Modal } from '@/components/ui-toolkit/modal/Modal.tsx';
+import { useState } from 'react';
 
 function App() {
+  const [modal, setModal] = useState(false);
+  const onOpenChangeModal = (value: boolean) => {
+    setModal(value);
+  };
+
   return (
     <div>
       <Typography variant="h1" as="h1">
@@ -28,11 +35,15 @@ function App() {
 
       <Button variant="transparent" icon={<EditIcon />} />
       <Button variant="transparent" icon={<TrashIcon />} />
-      <Button variant="transparent" icon={<AddIcon />} />
+      <Button variant="transparent" icon={<AddIcon />} onClick={() => onOpenChangeModal(true)} />
       <Button variant="transparentRed" icon={<CloseIcon />} />
 
       <Button variant="green">green asdasdas</Button>
       <Button variant="red">red asdasdas</Button>
+
+      <Modal isOpen={modal} onOpenChange={onOpenChangeModal} title="123">
+        <Input label="Add name" />
+      </Modal>
     </div>
   );
 }
