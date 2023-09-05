@@ -17,7 +17,7 @@ export const Modal: FC<ModalType> = ({ children, title, onOpenChange, isOpen }) 
       <Dialog.Overlay className={styles.dialogOverlay} />
       <Dialog.Content className={styles.dialogContent}>
         <div className={styles.header}>
-          <Dialog.Title>
+          <Dialog.Title asChild>
             <Typography variant="h2" as="h2">
               {title}
             </Typography>
