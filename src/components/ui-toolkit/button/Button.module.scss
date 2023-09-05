@@ -40,6 +40,23 @@
   }
 }
 
+.default {
+  all: unset;
+
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+}
+
 .transparent {
   @include button;
 

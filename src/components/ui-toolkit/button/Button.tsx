@@ -4,7 +4,7 @@ import styles from './Button.module.scss';
 
 export type ButtonProps<T extends ElementType = ElementType> = {
   as?: T;
-  variant?: 'primary' | 'red' | 'transparent' | 'transparentRed';
+  variant?: 'primary' | 'red' | 'transparent' | 'transparentRed' | 'default';
   fullWidth?: boolean;
   className?: string;
   icon?: ReactNode;
