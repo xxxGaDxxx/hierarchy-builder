@@ -3,12 +3,14 @@ import { Modal } from '@/components/ui-toolkit/modal/Modal.tsx';
 import { Button } from '@/components/ui-toolkit/button/Button.tsx';
 import { Typography } from '@/components/ui-toolkit/typography/Typography.tsx';
 import { DeleteModalProps } from '@/components/modals-node/types.ts';
+import Loader from '@/components/ui-toolkit/loader/Loader.tsx';
 import styles from './Modals.module.scss';
 
 const DeleteModal: FC<DeleteModalProps> = ({
   titleModal,
   nameNode,
   isOpen,
+  isLoading,
   onOpenChange,
   onDelete,
 }) => {
@@ -18,9 +20,13 @@ const DeleteModal: FC<DeleteModalProps> = ({
 
   return (
     <Modal title={titleModal} isOpen={isOpen} onOpenChange={onOpenChange}>
-      <Typography variant="body1" as="span">
-        {nameNode}
-      </Typography>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <Typography variant="body1" as="span">
+          {nameNode}
+        </Typography>
+      )}
 
       <div className={styles.containerButton}>
         <Button variant="red" onClick={onCloseModal}>
