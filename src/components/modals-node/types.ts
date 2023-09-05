@@ -1,6 +1,7 @@
 interface Modals {
   isOpen: boolean;
   titleModal: string;
+  isLoading: boolean;
   onOpenChange: (value: boolean) => void;
 }
 
