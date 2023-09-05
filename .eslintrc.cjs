@@ -17,6 +17,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/require-default-props': 'off',
+    'react/destructuring-assignment': 'off',
     'object-curly-newline': ['error', {
       multiline: true,
       consistent: true,
