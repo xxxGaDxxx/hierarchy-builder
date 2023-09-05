@@ -1,0 +1,25 @@
+@mixin typography($fontSize, $fontWeight) {
+  margin: 0;
+
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  color: var(--color-dark-900);
+}
+
+.h1 {
+  @include typography(var(--font-size-xxl), var(--font-weight-bold));
+}
+
+.h2 {
+  @include typography(var(--font-size-l), var(--font-weight-bold));
+}
+
+.body1 {
+  @include typography(var(--font-size-m), var(--font-weight-medium));
+}
+
+.error {
+  @include typography(var(--font-size-s), var(--font-weight-medium));
+
+  color: var(--color-error-500);
+}
