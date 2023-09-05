@@ -18,6 +18,11 @@ export const useTreeContext = () => {
 export const TreeProvider: FC<TreeProviderProps> = ({ children }) => {
   const [treeData, setTreeData] = useState<TreeNodeType | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [nodeVisibleId, setNodeVisibleId] = useState<null | number>(null);
+
+  const onNodeVisibleId = (id: number) => {
+    setNodeVisibleId(id);
+  };
 
   const getTreeData = async () => {
     setIsLoading(true);
@@ -94,12 +99,14 @@ export const TreeProvider: FC<TreeProviderProps> = ({ children }) => {
     () => ({
       treeData,
       isLoading,
+      nodeVisibleId,
       getTreeData,
       createNode,
       updateNameNode,
       deleteNode,
+      onNodeVisibleId,
     }),
-    [treeData, isLoading],
+    [treeData, isLoading, nodeVisibleId],
   );
 
   return <TreeContext.Provider value={contextValue}>{children}</TreeContext.Provider>;

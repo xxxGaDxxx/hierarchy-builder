@@ -14,7 +14,7 @@ type TreeNodeProps = {
 };
 
 const TreeNode: FC<TreeNodeProps> = ({ node, isChildren, onCreateChild, onUpdate, onDelete }) => {
-  const { isLoading } = useTreeContext();
+  const { isLoading, onNodeVisibleId, nodeVisibleId } = useTreeContext();
   const { id, children, name } = node;
 
   const [showChildren, setShowChildren] = useState(false);
@@ -43,6 +43,12 @@ const TreeNode: FC<TreeNodeProps> = ({ node, isChildren, onCreateChild, onUpdate
     onDelete(id);
   };
 
+  const handleButtonsVisible = () => {
+    onNodeVisibleId(id);
+  };
+
+  const isActive = nodeVisibleId === id;
+
   const isShowChildren = children.length > 0;
 
   return (
@@ -57,6 +63,8 @@ const TreeNode: FC<TreeNodeProps> = ({ node, isChildren, onCreateChild, onUpdate
           onOpenCreateModal={setIsOpenCreateModal}
           onOpenUpdateModal={setIsOpenUpdateModal}
           onOpenDeleteModal={setIsOpenDeleteModal}
+          isActive={isActive}
+          onButtonsVisible={handleButtonsVisible}
         />
 
         {showChildren && (

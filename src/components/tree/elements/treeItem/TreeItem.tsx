@@ -13,20 +13,25 @@ type TreeItemProps = {
   showChildren: boolean;
   isChildrenExist: boolean;
   isChildren: boolean;
+  isActive: boolean;
   onShowChildren: () => void;
   onOpenCreateModal: (value: boolean) => void;
   onOpenUpdateModal: (value: boolean) => void;
   onOpenDeleteModal: (value: boolean) => void;
+  onButtonsVisible: (visible: boolean) => void;
 };
+
 const TreeItem = ({
   name,
   showChildren,
   isChildrenExist,
   isChildren,
+  isActive,
   onShowChildren,
   onOpenDeleteModal,
   onOpenUpdateModal,
   onOpenCreateModal,
+  onButtonsVisible,
 }: TreeItemProps) => {
   const iconButton = isChildrenExist && (showChildren ? <ArrowRightIcon /> : <ArrowDown />);
 
@@ -39,37 +44,43 @@ const TreeItem = ({
   const handleOpenDeleteModal = () => {
     onOpenDeleteModal(true);
   };
+
+  const handleClickShow = () => {
+    onShowChildren();
+    onButtonsVisible(true);
+  };
+
   return (
-    // TODO Active
-    <div className={clsx(styles.root)}>
+    <div className={clsx(styles.root, isActive && styles.active)}>
       <Button
         variant="default"
-        onClick={onShowChildren}
+        onClick={handleClickShow}
         icon={iconButton}
-        disabled={!isChildrenExist}
+        className={clsx(!isChildrenExist && styles.disable)}
+        // disabled={!isChildrenExist}
       >
         <Typography variant="body1" as="p">
           {name}
         </Typography>
       </Button>
 
-      {/* {active && ( */}
-      <div className={styles.containerButton}>
-        <Button variant="transparent" onClick={handleOpenCreateModal}>
-          <AddIcon />
-        </Button>
-        {isChildren && (
-          <>
-            <Button variant="transparent" onClick={handleOpenUpdateModal}>
-              <EditIcon />
-            </Button>
-            <Button variant="transparentRed" onClick={handleOpenDeleteModal}>
-              <TrashIcon />
-            </Button>
-          </>
-        )}
-      </div>
-      {/* )} */}
+      {isActive && (
+        <div className={styles.containerButton}>
+          <Button variant="transparent" onClick={handleOpenCreateModal}>
+            <AddIcon />
+          </Button>
+          {isChildren && (
+            <>
+              <Button variant="transparent" onClick={handleOpenUpdateModal}>
+                <EditIcon />
+              </Button>
+              <Button variant="transparentRed" onClick={handleOpenDeleteModal}>
+                <TrashIcon />
+              </Button>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 };

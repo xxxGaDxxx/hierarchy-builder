@@ -5,6 +5,8 @@ export type TreeContextType = {
   treeData: TreeNodeType | null;
   isLoading: boolean;
   getTreeData: () => void;
+  nodeVisibleId: number | null;
+  onNodeVisibleId: (id: number) => void;
   createNode: (params: CreateNodeType) => void;
   updateNameNode: (params: UpdateNameNodeType) => void;
   deleteNode: (params: DeleteNodeType) => void;

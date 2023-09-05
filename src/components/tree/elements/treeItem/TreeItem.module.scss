@@ -1,16 +1,23 @@
 .root {
-  margin: 0 0 10px 20px;
+  height: 30px;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 15px;
+  border-bottom: 2px solid transparent;
 }
 
 .active {
-  background-color: var(--color-light-300);
+  border-color: var(--color-blue-100);
 }
 
 .containerButton {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.disable {
+  cursor: default;
+  opacity: 0.5;
 }

@@ -1,6 +1,7 @@
 import { CreateNodeType, UpdateNameNodeType } from '@/api/types.ts';
 import TreeNode from '@/components/tree/elements/treeNode/TreeNode.tsx';
 import { useTreeContext } from '@/context/TreeProvider.tsx';
+import styles from './Tree.module.scss';
 
 const Tree = () => {
   const { treeData, createNode, updateNameNode, deleteNode } = useTreeContext();
@@ -18,7 +19,7 @@ const Tree = () => {
   };
 
   return (
-    <div>
+    <div className={styles.root}>
       {treeData && (
         <TreeNode
           node={treeData}
