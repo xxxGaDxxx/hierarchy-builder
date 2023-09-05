@@ -1,0 +1,61 @@
+.root {
+  position: relative;
+  width: 100%;
+}
+
+.fieldContainer {
+  position: relative;
+  width: 100%;
+}
+
+.field {
+  width: 100%;
+  padding: 8px 16px;
+
+  font-family: inherit;
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-dark-900);
+
+  background: var(--color-light-100);
+  border: 1px solid var(--color-light-300);
+  border-radius: var(--border-radius--m);
+  outline: 0;
+
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: var(--color-dark-900);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    &::placeholder {
+      color: var(--color-dark-100);
+    }
+  }
+
+  &:focus-visible,
+  &:active {
+    border-color: var(--color-blue-500);
+  }
+
+  &:hover {
+    border-color: var(--color-blue-300);
+  }
+
+  &.error {
+    border-color: var(--color-error-300);
+    margin-bottom: 2px;
+  }
+}
+
+.label {
+  margin-bottom: 8px;
+  display: block;
+  color: var(--color-dark-200);
+}
+
+.disabled {
+  color: var(--color-dark-100);
+}

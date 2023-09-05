@@ -1,13 +1,22 @@
 :root {
   // light
   --color-light-100: #fff;
+  --color-light-300: #e4e7ec;
 
   // dark
+  --color-dark-100: #98a2b3;
+  --color-dark-200: #667085;
   --color-dark-900: #101828;
 
   // error
+  --color-error-300: #fda29b;
   --color-error-500: #f04438;
 
   // success
   --color-success-: #039855;
+
+  // blue
+  --color-blue-300: #84caff;
+  --color-blue-400: #53b1fd;
+  --color-blue-500: #2e90fa;
 }

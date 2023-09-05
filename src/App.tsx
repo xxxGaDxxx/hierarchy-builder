@@ -1,4 +1,5 @@
 import { Typography } from '@/components/ui-toolkit/typography/Typography.tsx';
+import Input from '@/components/ui-toolkit/input/Input.tsx';
 
 function App() {
   return (
@@ -15,6 +16,10 @@ function App() {
       <Typography variant="error" as="p">
         error text
       </Typography>
+
+      <Input label="Add name" />
+      <Input label="Error" errorMessage="no name" />
+      <Input label="Error" disabled />
     </div>
   );
 }
