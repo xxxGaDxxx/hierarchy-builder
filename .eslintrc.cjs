@@ -44,5 +44,13 @@ module.exports = {
         "extensions": [".ts", ".js", ".jsx", ".json"]
       }
     }
-  }
+  },
+  overrides: [
+    {
+      files: ['*.ts'], // Применять настройки только для файлов TypeScript
+      rules: {
+        'import/prefer-default-export': 'off', // Отключить правило для TypeScript файлов
+      },
+    },
+  ],
 }
