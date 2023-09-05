@@ -20,6 +20,7 @@ const EditOrAddModal: FC<EditOrAddModalProps> = ({
   };
 
   const onCloseModal = () => {
+    setValueInput('');
     onOpenChange(false);
   };
 
@@ -28,7 +29,7 @@ const EditOrAddModal: FC<EditOrAddModalProps> = ({
   };
 
   return (
-    <Modal title={titleModal} isOpen={isOpen} onOpenChange={onOpenChange}>
+    <Modal title={titleModal} isOpen={isOpen} onOpenChange={onCloseModal}>
       <Input value={valueInput} onChange={onHandlerChange} label={labelInput} />
 
       <div className={styles.containerButton}>
