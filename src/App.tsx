@@ -38,7 +38,7 @@ function App() {
       <Button variant="transparent" icon={<AddIcon />} onClick={() => onOpenChangeModal(true)} />
       <Button variant="transparentRed" icon={<CloseIcon />} />
 
-      <Button variant="green">green asdasdas</Button>
+      <Button variant="primary">green asdasdas</Button>
       <Button variant="red">red asdasdas</Button>
 
       <Modal isOpen={modal} onOpenChange={onOpenChangeModal} title="123">
