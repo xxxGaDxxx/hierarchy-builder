@@ -100,7 +100,7 @@ const TreeNode: FC<TreeNodeProps> = ({ node, isChildren, onCreateChild, onUpdate
         onOpenChange={setIsOpenUpdateModal}
       />
       <DeleteModal
-        titleModal="Update name node"
+        titleModal="Delete node"
         nameNode={name}
         isLoading={isLoading}
         onDelete={handleDelete}
