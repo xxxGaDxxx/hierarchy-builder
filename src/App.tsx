@@ -5,13 +5,17 @@ import EditIcon from '@/assets/icons/EditIcon.tsx';
 import TrashIcon from '@/assets/icons/TrashIcon.tsx';
 import AddIcon from '@/assets/icons/AddIcon.tsx';
 import CloseIcon from '@/assets/icons/CloseIcon.tsx';
-import { Modal } from '@/components/ui-toolkit/modal/Modal.tsx';
+import EditOrAddModal from '@/components/modals-node/EditOrAddModal.tsx';
 import { useState } from 'react';
 
 function App() {
   const [modal, setModal] = useState(false);
   const onOpenChangeModal = (value: boolean) => {
     setModal(value);
+  };
+
+  const onHandlerSubmitModal = (valueInput: string) => {
+    console.log('valueInput', valueInput);
   };
 
   return (
@@ -41,9 +45,13 @@ function App() {
       <Button variant="primary">green asdasdas</Button>
       <Button variant="red">red asdasdas</Button>
 
-      <Modal isOpen={modal} onOpenChange={onOpenChangeModal} title="123">
-        <Input label="Add name" />
-      </Modal>
+      <EditOrAddModal
+        titleModal="123123"
+        labelInput="123123"
+        isOpen={modal}
+        onOpenChange={onOpenChangeModal}
+        onSubmitModal={onHandlerSubmitModal}
+      />
     </div>
   );
 }
