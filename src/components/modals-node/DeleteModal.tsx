@@ -17,6 +17,11 @@ const DeleteModal: FC<DeleteModalProps> = ({
   const onCloseModal = () => {
     onOpenChange(false);
   };
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      onDelete();
+    }
+  };
 
   return (
     <Modal title={titleModal} isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -32,12 +37,11 @@ const DeleteModal: FC<DeleteModalProps> = ({
         <Button variant="red" onClick={onCloseModal}>
           Close
         </Button>
-        <Button variant="primary" onClick={onDelete}>
+        <Button variant="primary" onClick={onDelete} onKeyDown={handleKeyDown}>
           Save
         </Button>
       </div>
     </Modal>
   );
 };
-
 export default DeleteModal;

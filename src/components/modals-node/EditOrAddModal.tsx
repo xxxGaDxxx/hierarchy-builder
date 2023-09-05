@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useEffect, useState } from 'react';
+import { ChangeEvent, FC, KeyboardEvent, useEffect, useState } from 'react';
 import { Modal } from '@/components/ui-toolkit/modal/Modal.tsx';
 import Input from '@/components/ui-toolkit/input/Input.tsx';
 import { Button } from '@/components/ui-toolkit/button/Button.tsx';
@@ -36,12 +36,23 @@ const EditOrAddModal: FC<EditOrAddModalProps> = ({
     }
   }, [isLoading]);
 
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      onSubmitModal(valueInput);
+    }
+  };
+
   return (
     <Modal title={titleModal} isOpen={isOpen} onOpenChange={onCloseModal}>
       {isLoading ? (
         <Loader />
       ) : (
-        <Input value={valueInput} onChange={onHandlerChange} label={labelInput} />
+        <Input
+          value={valueInput}
+          onChange={onHandlerChange}
+          label={labelInput}
+          onKeyDown={handleKeyDown}
+        />
       )}
 
       <div className={styles.containerButton}>
