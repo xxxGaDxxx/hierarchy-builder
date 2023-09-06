@@ -35,6 +35,8 @@ const TreeItem = ({
 }: TreeItemProps) => {
   const iconButton = isChildrenExist && (showChildren ? <ArrowRightIcon /> : <ArrowDown />);
 
+  const nameNode = name || 'no name';
+
   const handleOpenCreateModal = () => {
     onOpenCreateModal(true);
   };
@@ -57,10 +59,9 @@ const TreeItem = ({
         onClick={handleClickShow}
         icon={iconButton}
         className={clsx(!isChildrenExist && styles.disable)}
-        // disabled={!isChildrenExist}
       >
         <Typography variant="body1" as="p">
-          {name}
+          {nameNode}
         </Typography>
       </Button>
 

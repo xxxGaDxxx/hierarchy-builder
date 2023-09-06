@@ -31,7 +31,7 @@ const EditOrAddModal: FC<EditOrAddModalProps> = ({
   };
 
   useEffect(() => {
-    if (!isLoading && Boolean(valueInput.length)) {
+    if (!isLoading) {
       onCloseModal();
     }
   }, [isLoading]);
